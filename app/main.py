@@ -42,6 +42,7 @@ def index():
     content_string = get_content_string(my_url)
     starts, ends = find_occurrences(content_string)
     url_list = get_all_urls(starts, ends, content_string)
+    contents = []
 
     # Gets the article summary and performs sentiment analysis on the chosen URL.
     # For more information on how this works, visit news_scrape.py and news_nlp.py!
@@ -55,9 +56,10 @@ def index():
                 "sentiment": sentiment
             }
             content.update(article_stuff)
+            contents.append(content)
         except ArticleException:
             pass
-    return render_template('index.html', content=content)
+    return render_template('index.html', contents=contents)
 
 
 if __name__ == '__main__':
