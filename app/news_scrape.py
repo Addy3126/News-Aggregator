@@ -14,6 +14,8 @@ def summarize_article(url):
     article.download('punkt')
     article.nlp()
 
+    article_title = article.title
+
     # Gets the author or authors of the article
     author_string = " "
     for author in article.authors:
@@ -34,6 +36,6 @@ def summarize_article(url):
     for image in article.images:
         image_string += "\n\t" + image  # adds a newline and a tab before each image is printed
 
-    return {"author_string": author_string, "publish_date": publish_date, "img_url": img_url,
-            "image_string": image_string, "article_summary": article.summary}
+    return {"article_title": article_title, "author_string": author_string, "publish_date": publish_date,
+            "img_url": img_url, "image_string": image_string, "article_summary": article.summary}
 
