@@ -20,17 +20,12 @@
     </div>
 
     <div class="articles">
-        <h1 style="font-family: 'Bebas Neue', sans-serif; letter-spacing: 2px; font-size: 3em;">Latest Technology Articles</h1>
+        <h1 style="font-family: 'Bebas Neue', sans-serif; letter-spacing: 2px; font-size: 3em;margin: 0 0 5% 5%;">Latest Technology Articles</h1>
     
-        {% for content in contents %}
         <div class="articlebody">
+            {% for content in contents %}
                 <div style="display: flex;margin: 2% 0;">
-                    <div style="font-weight: bold;">Article URL:&nbsp;</div>
-                    <a href="{{ content['article_url'] }}">{{ content['article_url'] }}</a>
-                </div>
-                <div style="display: flex;margin: 2% 0;">
-                    <div style="font-weight: bold;">Article Title:&nbsp;</div>
-                    {{ content['article_title'] }}
+                    <div class="articleheading">{{ content['article_title'] }}</div>
                 </div>
                 <div style="display: flex;margin: 2% 0;">
                     <div style="font-weight: bold;">Authors:&nbsp;</div>
@@ -40,16 +35,24 @@
                     <div style="font-weight: bold;">Publish Date:&nbsp;</div>
                     {{ content['publish_date'] }}
                 </div>
+                <div style="color: rgb(235, 43, 43);font-weight: bold;">SENTIMENT</div>
+                <div style="display: flex;margin-top: 2%;">
+                    <div style="font-weight: bold;">Polarity:&nbsp;</div>
+                    {{ content['sentiment']['polarity'] }}
+                </div>
+                <div style="display: flex;margin-bottom: 2%;">
+                    <div style="font-weight: bold;">Subjectivity: &nbsp;</div>
+                    {{ content['sentiment']['subjectivity'] }}
+                </div>
                 <div style="margin: 2% 0;">
                     <div style="font-weight: bold;">Article Summary</div>
                     <p>{{ content['article_summary'] }}</p>
                 </div>
-                Sentiment:
-                <br>
-                Polarity: {{ content['sentiment']['polarity'] }}
-                <br>
-                Subjectivity: {{ content['sentiment']['subjectivity'] }}
-                <br><br><br>
+                <div style="display: flex;margin: 2% 0;">
+                    <div style="font-weight: bold;">Article URL:&nbsp;</div>
+                    <a href="{{ content['article_url'] }}">{{ content['article_url'] }}</a>
+                </div>
+                <div class="endbar"></div>
             {% endfor %}
         </div>
     </div>
