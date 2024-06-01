@@ -17,9 +17,10 @@ def summarize_article(url):
     article_title = article.title
 
     # Gets the author or authors of the article
-    author_string = " "
+    author_lst = []
     for author in article.authors:
-        author_string += author  # adds all authors (if more than 1) to the author string.
+        author_lst.append(author)
+    author_string = ', '.join(author_lst)  # adds all authors (if more than 1) to the author string.
 
     # Gets the publication date of the article
     date = article.publish_date
