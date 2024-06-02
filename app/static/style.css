@@ -19,6 +19,16 @@ body{
     height: 100vh;
     width: 600px;
 }
+.headCon{
+    position: absolute;
+    background: #69748f;
+    top: 50%;
+    left: 50%;
+    height: 50%;
+    width: 60%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+}
 .line1{
     position: absolute;
     top: -100px;
@@ -61,6 +71,25 @@ body{
     letter-spacing: 5px;
     font-weight: 300;
 }
+.hoverme{
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    padding: 2%;
+    font-size: 2em;
+    font-family: 'Bebas Neue',sans-serif;
+    letter-spacing: 2px;
+}
+.hoverme::before{
+    content: '';
+    background: url("4274640.png");
+    position: absolute;
+    bottom: 5%;
+    right: 10%;
+    height: 400px;
+    width: auto;
+}
+
 .articles{
     padding: 5%;
     background-color: rgb(228, 220, 206);
@@ -111,27 +140,77 @@ body{
     background-color: #aa9b82;
 }
 .form1{
-    width: 100% ;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    width: 50%;
     margin: 0 auto;
     padding: 20px;
     text-align: center;
+    justify-content: center;
+    align-items: center;
+    z-index: -1;
+    opacity: 0;
 }
-.form1textbox::placeholder{
-    font-size: 1.2em;
-}
-.form1textbox{
-    border-radius: 5px;
-    padding: 15px;
-    width: 30%;
-    border: 2px solid #ED9455;
-    margin: 0 20px;
-}
+
 .form1submit{
     font-family: 'Bebas Neue', sans-serif;
+    letter-spacing: 1px;
     font-size: 1em;
-    background: #ED9455;
-    color: rgb(228, 220, 206);
-    border-radius: 5px;
-    padding: 15px 40px;
-    border: 2px solid #ED9455;
+    background: rgb(228, 220, 206);
+    color: black;
+    padding: 8px 25px;
+    border: 2px solid rgb(228, 220, 206);
+}
+select {
+    appearance: none;
+    background-color: transparent;
+    border: none;
+    padding: 8px 25px;
+    margin: 0;
+    width: 100%;
+    font-family: inherit;
+    font-size: inherit;
+    cursor: inherit;
+    line-height: inherit;
+    z-index: 1;
+    outline: none;
+  }
+  
+.select {
+    display: grid;
+    grid-template-areas: "select";
+    align-items: center;
+    position: relative;
+    max-width: 40%;
+    border: 1px solid var(--select-border);
+    padding: 0.25em 0.5em;
+    font-size: 0.95rem;
+    cursor: pointer;
+    line-height: 1.1;
+    background-color: #fff;
+    background-image: linear-gradient(to top, #f9f9f9, #fff 33%);
+}
+.headname1, .headname2, .line1, .line2, .form1{
+    transition: 200ms ease-in-out;
+}
+body:has(.headCon:hover) .headname1, body:has(.form1:hover) .headname1{
+    top: 20%;
+    left: 20%;
+}
+body:has(.headCon:hover) .headname2, body:has(.form1:hover) .headname2{
+    bottom: 10%;
+    right: 2.5%;
+}
+body:has(.headCon:hover) .line1, body:has(.form1:hover) .line1{
+    left: 37%;
+}
+body:has(.headCon:hover) .line2, body:has(.form1:hover) .line2{
+    right: 37.8%;
+}
+body:has(.headCon:hover) .form1, body:has(.form1:hover) .form1{
+    opacity: 1;
+    z-index: 0;
 }
