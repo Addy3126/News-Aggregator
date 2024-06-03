@@ -76,18 +76,22 @@ body{
     right: 0;
     bottom: 0;
     padding: 2%;
-    font-size: 2em;
+    font-size: 2.2rem;
     font-family: 'Bebas Neue',sans-serif;
     letter-spacing: 2px;
 }
 .hoverme::before{
     content: '';
-    background: url("4274640.png");
+    background: url("../static/4274640.png");
+    background-size: contain;
     position: absolute;
-    bottom: 5%;
-    right: 10%;
-    height: 400px;
-    width: auto;
+    top: -100px;
+    left: -150px;
+    height: 200px;
+    width: 200px;
+    z-index: 5;
+    transform: scaleY(-1);
+    filter: invert(80%);
 }
 
 .articles{
