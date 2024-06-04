@@ -14,10 +14,29 @@
         <div class="line1"></div>
         <div class="line2"></div>
         <img src="../static/images.jpeg" alt="home1" style="width:100%;height:101vh;object-fit:cover;filter:brightness(50%) blur(7px);position: absolute;top:0;z-index: -2;">
+        <div class="hoverme">Hover Me</div>
     </div>
+    
+    <div class="headCon"></div>
+    <form class="form1" action="/" method="post">
+        <div class="select">
+            <select id="standard-select" name="news_category" required>
+                <option value="" disabled selected>--Select News Category--</option>
+                <option value="world">World </option>
+                <option value="climate">Climate </option>
+                <option value="education">Education </option>
+                <option value="health">Health </option>
+                <option value="science">Science </option>
+                <option value="sports">Sports </option>
+                <option value="business">Business </option>
+                <option value="technology">Technology </option>
+            </select>
+          </div>
+          <input class="form1submit" type="submit" value="Fetch News">
+    </form>
 
     <div class="articles">
-        <h1 style="font-family: 'Bebas Neue', sans-serif; letter-spacing: 2px; font-size: 3em;margin: 0 0 5% 5%;">Latest Technology Articles</h1>
+        <h1 style="font-family: 'Bebas Neue', sans-serif; letter-spacing: 2px; font-size: 3em;margin: 0 0 5% 5%;">Latest {{news_category}} Articles</h1>
     
         <div class="articlebody">
             {% for content in contents %}
@@ -46,8 +65,7 @@
                     <p>{{ content['article_summary'] }}</p>
                 </div>
                 <div style="display: flex;margin: 2% 0;">
-                    <div style="font-weight: bold;">Article URL:&nbsp;</div>
-                    <a href="{{ content['article_url'] }}">{{ content['article_url'] }}</a>
+                    <a href="{{ content['article_url'] }}">View Full Article</a>
                 </div>
                 <div class="endbar"></div>
             {% endfor %}
