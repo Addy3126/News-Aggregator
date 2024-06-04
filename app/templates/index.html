@@ -20,7 +20,7 @@
     <div class="headCon"></div>
     <form class="form1" action="/" method="post">
         <div class="select">
-            <select id="standard-select">
+            <select id="standard-select" name="news_category" required>
                 <option value="" disabled selected>--Select News Category--</option>
                 <option value="world">World </option>
                 <option value="climate">Climate </option>
@@ -36,7 +36,7 @@
     </form>
 
     <div class="articles">
-        <h1 style="font-family: 'Bebas Neue', sans-serif; letter-spacing: 2px; font-size: 3em;margin: 0 0 5% 5%;">Latest Technology Articles</h1>
+        <h1 style="font-family: 'Bebas Neue', sans-serif; letter-spacing: 2px; font-size: 3em;margin: 0 0 5% 5%;">Latest {{news_category}} Articles</h1>
     
         <div class="articlebody">
             {% for content in contents %}

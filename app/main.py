@@ -15,14 +15,12 @@ CORS(app)
 @app.route('/', methods=['GET', 'POST'])
 def index():
     if request.method == 'POST':
-        # Gets all the latest URL's from the NY Times Technology Section. (see news_extract.py for more detail)
+        news_category = request.values.get('news_category')
+        my_url = f"https://www.nytimes.com/section/{news_category}"
         content_string = get_content_string(my_url)
         starts, ends = find_occurrences(content_string)
         url_list = get_all_urls(starts, ends, content_string)
         contents = []
-
-        # Gets the article summary and performs sentiment analysis on the chosen URL.
-        # For more information on how this works, visit news_scrape.py and news_nlp.py!
         for url in url_list:
             try:
                 article_url = str(url)
@@ -36,7 +34,7 @@ def index():
                 contents.append(content)
             except ArticleException:
                 pass
-        return render_template('index.html', contents=contents)
+        return render_template('index.html', contents=contents, news_category=news_category)
     return render_template('index.html')
 
 
